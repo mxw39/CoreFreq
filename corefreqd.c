@@ -3933,6 +3933,7 @@ void SKL_CAP(SHM_STRUCT *Shm, RO(PROC) *RO(Proc), RO(CORE) *RO(Core))
 		break;
 	default:
 		DMFC = RO(Proc)->Uncore.Bus.SKL_Cap_C.DMFC_DDR4;
+        printf("%x\n", RO(Proc)->Uncore.Bus.SKL_Cap_C.value);
 		Shm->Uncore.Bus.Rate = 8000;	/* 8 GT/s DMI3 */
 		break;
 	}

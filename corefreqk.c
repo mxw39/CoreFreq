@@ -4319,7 +4319,16 @@ inline void SKL_SA(void __iomem *mchmap)
 
 void Query_SKL_IMC(void __iomem *mchmap, unsigned short mc)
 {	/*Source: 6th & 7th Generation Intel® Processor for S-Platforms Vol 2*/
-	unsigned short cha;
+	
+    unsigned int MC_BIOS_REQ = 0;
+    MC_BIOS_REQ = readl(mchmap+0x5e00);
+    printk("MC_BIOS_REQ[%x]", MC_BIOS_REQ);
+    
+    unsigned int SA_PERF_STAT = 0;
+    SA_PERF_STAT = readl(mchmap+0x5918);
+    printk("SA_PERF_STAT[%x]", SA_PERF_STAT);
+    
+    unsigned short cha;
 	/*		Intra channel configuration			*/
 	PUBLIC(RO(Proc))->Uncore.MC[mc].SKL.MADCH.value = readl(mchmap+0x5000);
     if (PUBLIC(RO(Proc))->Uncore.MC[mc].SKL.MADCH.CH_L_MAP)

@@ -3,7 +3,7 @@
 # Licenses: GPL2
 
 CC ?= cc
-WARNING = -Wall -Wfatal-errors
+WARNING = -Wall -Wfatal-errors -g
 PWD ?= $(shell pwd)
 KERNELDIR ?= /lib/modules/$(shell uname -r)/build
 PREFIX ?= /usr
